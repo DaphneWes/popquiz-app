@@ -70,7 +70,16 @@ function Quiz(props) {
                                     key={option.id}
                                     onClick={() => optionClicked(option.isCorrect)}
                                 >
-                                    {option.text}
+                                    {!option.text ? 
+                                    <div className='album-cover'>
+                                        <img src={option.img} alt="album-cover" width="200" height="200"></img>
+                                    </div>
+                                    :
+                                    <div className='text-option'>
+                                        {option.text}
+                                    </div>
+                                    }
+                                    
                                 </li>
                             );
                         })}

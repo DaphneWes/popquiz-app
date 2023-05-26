@@ -33,13 +33,14 @@ function App() {
     setToken("")
     window.localStorage.removeItem("token");
   }
-  
+
   // check button clicked
   const [questions, setQuestions] = useState({});
   const [loadQuestions, setLoadQuestions] = useState(false);
+  const [quizID, setQuizID] = useState("v1/playlists/37i9dQZEVXbKCF6dqVpDkS/tracks");
 
   const handleClickFetch = async () => {
-    const fetchedQuestions = await fetchQuizQuestions();
+    const fetchedQuestions = await fetchQuizQuestions(quizID);
     setQuestions(fetchedQuestions);
     setLoadQuestions(true);
   }
@@ -56,11 +57,19 @@ function App() {
             :
             <div>
               {!loadQuestions ?
-              <div className='chooseQuiz'>
-                <button onClick={handleClickFetch}>Fetch Questions</button>
-              </div>
-              :
-              <Quiz token={token} questions={questions} />
+                <div className='chooseQuiz'>
+                  <form>
+                    <select onChange={(e) => {
+                      setQuizID(e.target.value);
+                    }}>
+                      <option value="v1/playlists/37i9dQZEVXbKCF6dqVpDkS/tracks">Current NL top 50</option>
+                      <option value="v1/playlists/37i9dQZF1DWWxPM4nWdhyI/tracks">Ed Sheeran</option>
+                    </select>
+                  </form>
+                  <button onClick={handleClickFetch}>Fetch Questions</button>
+                </div>
+                :
+                <Quiz token={token} questions={questions} />
               }
               <button className="logOut" onClick={logout}>Logout</button>
             </div>
