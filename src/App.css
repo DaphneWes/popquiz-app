@@ -2,19 +2,50 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.title-frontpage {
+  position: relative;
+  color: black;
+  font-family:'Courier New', Courier, monospace;
+  font-size: 100px;
+  padding-bottom: 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.info-frontpage {
+  color: black;
+  font-size: 15px;
+  padding: 10px;
+}
+
+.top-bar {
+  position: fixed;
+  /* background-color: #171a1e; */
+  background-color: #282c34;
+  /* background-color: rgb(49, 49, 49); */
+  overflow: hidden;
+  width: 100%;
+  top: 0;
+  left: 0px;
+}
+
+.title-popquiz {
+  /* color:black; */
+  display: block;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-family:'Courier New', Courier, monospace;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+select {
+  min-width: 200px;
+  padding: 10px;
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #eff0f2;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -22,17 +53,31 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  overflow: hidden;
 }
 
-.App-link {
-  color: #61dafb;
+.logOut {
+  position: fixed;
+  right:10px;
+  top: 15px;
+  padding: 10px;
+  font-size: 12px;
+  z-index: 99;
+  cursor: pointer;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.homeButton {
+  position: fixed;
+  left:10px;
+  top: 15px;
+  padding: 10px;
+  font-size: 15px;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.fetch-button {
+  margin: 25px;
+  cursor: pointer;
 }

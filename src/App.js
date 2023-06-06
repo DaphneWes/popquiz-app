@@ -45,11 +45,15 @@ function App() {
     setLoadQuestions(true);
   }
 
+  function refreshPage() {
+    window.location.reload();
+  }
+
   return (
     <div className="App">
       <header className="App-header">
+        <button className="logOut" onClick={logout}>Logout</button>
         <div className="SearchContainer">
-          <h2>Popquiz</h2>
           {!token ?
             <div >
               <a href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`}>Login to Spotify</a>
@@ -58,20 +62,33 @@ function App() {
             <div>
               {!loadQuestions ?
                 <div className='chooseQuiz'>
+                  <div className='title-frontpage'>
+                    Popquiz
+                  </div>
+                  <div className='info-frontpage'>
+                    Choose the genre of the quiz:
+                  </div>
                   <form>
                     <select onChange={(e) => {
                       setQuizID(e.target.value);
                     }}>
                       <option value="v1/playlists/37i9dQZEVXbKCF6dqVpDkS/tracks">Current NL top 50</option>
-                      <option value="v1/playlists/37i9dQZF1DWWxPM4nWdhyI/tracks">Ed Sheeran</option>
+                      <option value="v1/playlists/1Hno5OKWwHag0fuRBrXzWL/tracks">90s Hits</option>
+                      <option value="v1/playlists/37i9dQZF1DXb57FjYWz00c/tracks">80s Hits</option>
+                      <option value="v1/playlists/3NgkCmLvO7UrtMsVBEeFVU/tracks">70s Hits</option>
                     </select>
                   </form>
-                  <button onClick={handleClickFetch}>Fetch Questions</button>
+                  <button className="fetch-button" onClick={handleClickFetch}>Fetch Questions</button>
                 </div>
                 :
-                <Quiz token={token} questions={questions} />
+                <div className='QuizReady'>
+                  <div className='top-bar'>
+                    <div className='title-popquiz'>Popquiz</div>
+                    <button className="homeButton" onClick={refreshPage}>Home</button>
+                  </div>
+                  <Quiz token={token} questions={questions} />
+                </div>
               }
-              <button className="logOut" onClick={logout}>Logout</button>
             </div>
           }
         </div>

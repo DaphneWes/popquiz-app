@@ -3,7 +3,9 @@ import './Quiz.css'
 
 function Quiz(props) {
 
-    const questions = props.questions
+    const questions = props.questions;
+
+    const shuffle = arr => [...arr].sort(() => Math.random() - 0.5);
 
     // start quiz
 
@@ -13,6 +15,9 @@ function Quiz(props) {
 
 
     // Helper Functions
+    function refreshPage() {
+        window.location.reload();
+    }
 
     /* A possible answer was clicked */
     const optionClicked = (isCorrect) => {
@@ -37,10 +42,10 @@ function Quiz(props) {
 
     return (
 
-        <div className="App">
+        <div className="Quiz-container">
 
             {/* 2. Current Score  */}
-            <h2>Score: {score}</h2>
+            <h2 className='score'>Score: {score}</h2>
 
             {/* 3. Show results or show the question game  */}
             {showResults ? (
@@ -52,6 +57,7 @@ function Quiz(props) {
                         {(score / questions.length) * 100}%)
                     </h2>
                     <button onClick={() => restartGame()}>Restart game</button>
+                    <button onClick={() => refreshPage()}>Start new game</button>
                 </div>
             ) : (
                 /* 5. Question Card  */
@@ -62,9 +68,9 @@ function Quiz(props) {
                     </h3>
                     <h3 className="question-text">{questions[currentQuestion].text}</h3>
 
-                    {/* List of possible answers  */}
+                    {/* List of possible answers - shuffled  */}
                     <ul>
-                        {questions[currentQuestion].options.map((option) => {
+                        {shuffle(questions[currentQuestion].options).map((option) => {
                             return (
                                 <li
                                     key={option.id}
