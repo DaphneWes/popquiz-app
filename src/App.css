@@ -42,7 +42,9 @@
 select {
   min-width: 200px;
   padding: 10px;
+  /* text-align:center; */
 }
+
 
 .App-header {
   background-color: #eff0f2;
@@ -75,6 +77,27 @@ select {
   background: none;
   color: inherit;
   cursor: pointer;
+}
+
+.Search-page .homeButton {
+  color:black;
+}
+
+.searchButton {
+  position: fixed;
+  right:100px;
+  top: 15px;
+  padding: 10px;
+  font-size: 12px;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+#front-page {
+  top:12px;
+  color:black;
+  font-size:15px;
 }
 
 .fetch-button {

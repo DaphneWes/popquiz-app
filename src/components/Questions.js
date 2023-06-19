@@ -27,7 +27,9 @@ export const fetchQuizQuestions = async (quizID) => {
 
     const questions = [
         {
-            text: `Which artist/group sing the song "${shuffledData[0].track.name}"?`,
+            id: 0,
+            songID: shuffledData[0].track.id,
+            text: `Which artist/group sings the song "${shuffledData[0].track.name}"?`,
             options: [
                 { id: 0, text: shuffledData[0].track.artists[0].name, isCorrect: true },
                 { id: 1, text: shuffledData[1].track.artists[0].name, isCorrect: false },
@@ -36,7 +38,9 @@ export const fetchQuizQuestions = async (quizID) => {
             ]
         },
         {
-            text: `From which album is the song "${shuffledData[4].track.name}"`,
+            id: 1,
+            songID: shuffledData[4].track.id,
+            text: `From which album is the song "${shuffledData[4].track.name}"?`,
             options: [
                 { id: 0, img: shuffledData[4].track.album.images[0].url, isCorrect: true },
                 { id: 1, img: shuffledData[5].track.album.images[0].url, isCorrect: false },
@@ -45,6 +49,8 @@ export const fetchQuizQuestions = async (quizID) => {
             ]
         },
         {
+            id: 2,
+            songID: shuffledData[8].track.id,
             text: `Which of these songs is by "${shuffledData[8].track.artists[0].name}"?`,
             options: [
                 { id: 0, text: shuffledData[8].track.name, isCorrect: true },
@@ -54,6 +60,8 @@ export const fetchQuizQuestions = async (quizID) => {
             ]
         },
         {
+            id: 3,
+            songID: shuffledData[12].track.id,
             text: `Which artist/group sings the song "${shuffledData[12].track.name}"?`,
             options: [
                 { id: 0, text: shuffledData[12].track.artists[0].name, isCorrect: true },
@@ -63,7 +71,9 @@ export const fetchQuizQuestions = async (quizID) => {
             ]
         },
         {
-            text: `From which album is the song "${shuffledData[16].track.name}"`,
+            id: 4,
+            songID: shuffledData[16].track.id,
+            text: `From which album is the song "${shuffledData[16].track.name}"?`,
             options: [
                 { id: 0, img: shuffledData[16].track.album.images[0].url, isCorrect: true },
                 { id: 1, img: shuffledData[17].track.album.images[0].url, isCorrect: false },
@@ -72,6 +82,8 @@ export const fetchQuizQuestions = async (quizID) => {
             ]
         },
         {
+            id: 5,
+            songID: shuffledData[20].track.id,
             text: `Which artist/group sings the song "${shuffledData[20].track.name}"?`,
             options: [
                 { id: 0, text: shuffledData[20].track.artists[0].name, isCorrect: true },
@@ -82,6 +94,8 @@ export const fetchQuizQuestions = async (quizID) => {
         }
         ,
         {
+            id: 6,
+            songID: shuffledData[24].track.id,
             text: `Which of these songs is by "${shuffledData[24].track.artists[0].name}"?`,
             options: [
                 { id: 0, text: shuffledData[24].track.name, isCorrect: true },
@@ -91,7 +105,9 @@ export const fetchQuizQuestions = async (quizID) => {
             ]
         },
         {
-            text: `From which album is the song "${shuffledData[28].track.name}"`,
+            id: 7,
+            songID: shuffledData[28].track.id,
+            text: `From which album is the song "${shuffledData[28].track.name}"?`,
             options: [
                 { id: 0, img: shuffledData[28].track.album.images[0].url, isCorrect: true },
                 { id: 1, img: shuffledData[29].track.album.images[0].url, isCorrect: false },
@@ -100,6 +116,8 @@ export const fetchQuizQuestions = async (quizID) => {
             ]
         },
         {
+            id: 8,
+            songID: shuffledData[32].track.id,
             text: `Which artist/group sings the song "${shuffledData[32].track.name}"?`,
             options: [
                 { id: 0, text: shuffledData[32].track.artists[0].name, isCorrect: true },
@@ -110,6 +128,8 @@ export const fetchQuizQuestions = async (quizID) => {
         }
         ,
         {
+            id: 9,
+            songID: shuffledData[36].track.id,
             text: `Which of these songs is by "${shuffledData[36].track.artists[0].name}"?`,
             options: [
                 { id: 0, text: shuffledData[36].track.name, isCorrect: true },
@@ -119,7 +139,7 @@ export const fetchQuizQuestions = async (quizID) => {
             ]
         }
     ]
-
+    console.log(questions);
     return (questions)
 }
 
